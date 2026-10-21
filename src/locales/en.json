@@ -1,0 +1,319 @@
+{
+  "brand": {
+    "name": "Vektor Prima Studio",
+    "code": "VPS-CORE // 4.2",
+    "status": "ALL PRODUCTION CLUSTERS NOMINAL",
+    "region": "JAKARTA · SINGAPORE · ZURICH"
+  },
+  "nav": {
+    "homeAria": "Vektor Prima Studio Home",
+    "blueprints": "System Blueprints",
+    "simulator": "Capacity Simulator",
+    "deliveries": "Production Ledger",
+    "roadmap": "Execution Phases",
+    "partnership": "Initiate Project",
+    "switchTheme": "Switch color theme",
+    "switchLang": "Switch display language",
+    "openMenu": "Open navigation",
+    "closeMenu": "Close navigation"
+  },
+  "hero": {
+    "badge": "PRINCIPAL ENTERPRISE SOFTWARE & DIGITAL ARCHITECTURE STUDIO",
+    "title": "High-Velocity Digital Systems Engineered for Institutional Scale.",
+    "subtitle": "Vektor Prima Studio architects interactive web platforms, distributed cloud topologies, and unified design systems with sub-15ms edge latency and banking-grade resilience.",
+    "primaryCta": "Configure Project Specification",
+    "secondaryCta": "Simulate Infrastructure Load",
+    "canvasTitle": "INTERACTIVE 3D TOPOLOGY MATRIX",
+    "canvasHint": "Click any architecture node to inspect live telemetry or move pointer to rotate projection",
+    "triggerBurst": "Dispatch Test Packet",
+    "metrics": [
+      { "value": "99.99%", "label": "Production SLA Guarantee" },
+      { "value": "11.4 ms", "label": "Mean Edge Response" },
+      { "value": "64+", "label": "Enterprise Deployments" },
+      { "value": "100%", "label": "Security Audit Compliance" }
+    ],
+    "nodes": [
+      {
+        "id": "edge-gateway",
+        "name": "Anycast Edge Gateway",
+        "role": "Global Traffic Routing & DDoS Mitigation",
+        "latency": "1.8 ms",
+        "throughput": "142,000 req/sec",
+        "status": "Active · 16 PoPs"
+      },
+      {
+        "id": "kinetic-ui",
+        "name": "Interface Render Engine",
+        "role": "120fps Web Component Choreography & CSS Tokens",
+        "latency": "3.2 ms",
+        "throughput": "99.8 Lighthouse Score",
+        "status": "GPU Accelerated"
+      },
+      {
+        "id": "mesh-compute",
+        "name": "Micro-Compute Cluster",
+        "role": "Cross-Zone Automated Container Orchestration",
+        "latency": "6.4 ms",
+        "throughput": "88,500 tx/sec",
+        "status": "Auto-Scaling"
+      },
+      {
+        "id": "vault-ledger",
+        "name": "Zero-Trust Crypto Core",
+        "role": "Transaction Payload Encryption & Immutable Audit",
+        "latency": "2.1 ms",
+        "throughput": "AEAD-256 GCM",
+        "status": "Verified"
+      },
+      {
+        "id": "telemetry-bus",
+        "name": "Real-Time Observability Bus",
+        "role": "Live Metrics, Distributed Tracing & Anomaly Guard",
+        "latency": "4.0 ms",
+        "throughput": "1.2M events/min",
+        "status": "Streaming"
+      }
+    ]
+  },
+  "ticker": [
+    "HYBRID CLOUD ARCHITECTURE",
+    "MULTI-PLATFORM DESIGN SYSTEMS",
+    "KINETIC FRONTEND ENGINEERING",
+    "ZERO-TRUST SECURITY FABRIC",
+    "CORE WEB VITALS OPTIMIZATION",
+    "HIGH-THROUGHPUT API MESH"
+  ],
+  "blueprints": {
+    "kicker": "ARCHITECTURE BLUEPRINTS",
+    "heading": "Four Pillars of Vektor Prima Engineering.",
+    "subheading": "Select an architectural module to inspect its data-flow schematic, production stack, and verified performance benchmarks.",
+    "tabs": [
+      {
+        "id": "web-platform",
+        "code": "MOD-01",
+        "title": "Kinetic Web Platform",
+        "tagline": "High-velocity corporate interfaces with precision motion choreography",
+        "description": "We engineer flagship web applications and institutional portals that combine instant initial load times with tactile visual responsiveness, measurably elevating B2B partner conversion.",
+        "pipeline": ["Browser Client", "Edge CDN Cache", "Streaming SSR Engine", "Design Token Store"],
+        "benchmarks": [
+          { "label": "First Contentful Paint", "val": "0.48 sec" },
+          { "label": "Target Frame Rate", "val": "120 fps" },
+          { "label": "Core Bundle Footprint", "val": "14.2 kB" }
+        ],
+        "deliverables": [
+          "React 19 & TypeScript architecture with end-to-end strict typing",
+          "Spring-physics motion choreography and GPU-accelerated transitions",
+          "Full WCAG 2.1 Level AA accessibility and keyboard navigation"
+        ]
+      },
+      {
+        "id": "cloud-fabric",
+        "code": "MOD-02",
+        "title": "Distributed Cloud Mesh",
+        "tagline": "Multi-region infrastructure with automated zero-downtime failover",
+        "description": "Resilient cloud topologies engineered to absorb extreme traffic bursts, featuring cross-region state replication and intelligent predictive load balancing.",
+        "pipeline": ["Anycast DNS", "API Gateway", "Service Mesh", "Distributed Storage"],
+        "benchmarks": [
+          { "label": "Failover Recovery", "val": "< 65 ms" },
+          { "label": "Annual Availability", "val": "99.995%" },
+          { "label": "Compute Efficiency", "val": "+42%" }
+        ],
+        "deliverables": [
+          "Fully versioned Infrastructure as Code (IaC) blueprints",
+          "Automated CI/CD pipelines with multi-stage regression gates",
+          "Real-time telemetry dashboards for node health observability"
+        ]
+      },
+      {
+        "id": "design-system",
+        "code": "MOD-03",
+        "title": "Enterprise Design System",
+        "tagline": "A single visual source of truth across your entire product portfolio",
+        "description": "Unify dozens of internal and customer-facing applications into a governed component library powered by semantic CSS tokens and instant bilingual localization.",
+        "pipeline": ["Semantic CSS Tokens", "UI Primitive Kit", "Interactive Docs", "Automated Package Sync"],
+        "benchmarks": [
+          { "label": "Feature Delivery Speed", "val": "2.8x Faster" },
+          { "label": "Cross-App Consistency", "val": "100%" },
+          { "label": "Theme Parity", "val": "Dark & Light" }
+        ],
+        "deliverables": [
+          "Centralized token architecture with zero hardcoded hex values",
+          "Accessible component primitives with full focus management",
+          "Runtime bilingual localization without page reloads"
+        ]
+      },
+      {
+        "id": "security-core",
+        "code": "MOD-04",
+        "title": "Financial Security Core",
+        "tagline": "Defense-in-depth protection and strict schema validation for critical ledgers",
+        "description": "End-to-end hardened security architecture built for financial institutions, payment gateways, and enterprise data platforms with immutable audit trails.",
+        "pipeline": ["WAF & Rate Limiter", "Strict Schema Guard", "RBAC Policy Engine", "Encrypted Vault"],
+        "benchmarks": [
+          { "label": "Verification Overhead", "val": "1.9 ms" },
+          { "label": "Cipher Standard", "val": "TLS 1.3 / AEAD" },
+          { "label": "Critical Vulnerabilities", "val": "0 Findings" }
+        ],
+        "deliverables": [
+          "Server-side input validation and strict payload sanitization",
+          "Hardened session management and automated key rotation",
+          "Continuous security auditing and stress-test verification"
+        ]
+      }
+    ]
+  },
+  "simulator": {
+    "kicker": "CAPACITY & EFFICIENCY SIMULATOR",
+    "heading": "Model Your Infrastructure Scale in Real Time.",
+    "subheading": "Adjust traffic volume and target SLA parameters below to compute estimated system performance and recommended engineering squad allocation.",
+    "usersLabel": "Monthly Active Users Volume",
+    "usersUnit": "Users",
+    "slaLabel": "Target Availability Tier (SLA)",
+    "topologyLabel": "Deployment Topology Model",
+    "topologies": [
+      { "id": "single", "name": "Optimized Single-Cluster", "latencyFactor": 1.0, "costSaving": 28 },
+      { "id": "multi", "name": "Active-Active Multi-Region", "latencyFactor": 0.68, "costSaving": 36 },
+      { "id": "hybrid", "name": "Sovereign Hybrid Cloud", "latencyFactor": 0.74, "costSaving": 44 }
+    ],
+    "outputs": {
+      "throughput": "Rated Peak Throughput",
+      "latency": "Estimated P99 Latency",
+      "savings": "Infrastructure Cost Efficiency",
+      "squad": "Recommended Engineering Squad",
+      "timeline": "Estimated Launch Cycle",
+      "weeks": "Weeks",
+      "engineers": "Principal Architects & Engineers",
+      "applyCta": "Apply Configuration to Project Brief"
+    }
+  },
+  "deliveries": {
+    "kicker": "PRODUCTION DELIVERY LEDGER",
+    "heading": "Verified Outcomes from Enterprise Engagements.",
+    "filterAll": "All Sectors",
+    "inspectBtn": "Inspect Technical Brief",
+    "closeModal": "Close Brief",
+    "architectureLabel": "Deployed Architecture Stack",
+    "outcomesLabel": "Verified Production Metrics",
+    "items": [
+      {
+        "id": "sentra-clearing",
+        "sector": "FinTech",
+        "client": "Sentra Clearing Nusantara",
+        "location": "Jakarta · Interbank Settlement",
+        "title": "Institutional Clearing & Liquidity Execution Portal",
+        "summary": "Full architectural re-engineering of an interbank settlement terminal featuring real-time liquidity telemetry and a 71% reduction in interface response latency.",
+        "outcomes": [
+          "+165% Operator Execution Velocity",
+          "11.2 ms WebSocket Telemetry Refresh",
+          "100% Regulatory Infrastructure Audit Pass"
+        ],
+        "stack": ["React 19", "TypeScript", "Tailwind Token Engine", "WebSockets"]
+      },
+      {
+        "id": "stratos-edge",
+        "sector": "Cloud",
+        "client": "Stratos Asia Infrastructure",
+        "location": "Singapore · Network Control Plane",
+        "title": "18,000-Node Compute Observability Console",
+        "summary": "Interactive canvas-backed cloud control plane capable of rendering live telemetry across 18,000 distributed compute instances at a locked 120fps.",
+        "outcomes": [
+          "-64% Browser Memory Consumption",
+          "0.52 sec Initial Page Load",
+          "99.99% Monitoring Uptime Reliability"
+        ],
+        "stack": ["Vite", "Canvas 2D Engine", "GSAP", "Distributed Telemetry"]
+      },
+      {
+        "id": "kinetika-med",
+        "sector": "Enterprise AI",
+        "client": "Kinetika Digital Diagnostics",
+        "location": "Surabaya & Singapore · Analytics Suite",
+        "title": "Unified Design System Across 14 Analytics Products",
+        "summary": "Consolidation of 14 fragmented enterprise software products into a single token-governed design system with native dark/light modes and bilingual support.",
+        "outcomes": [
+          "2.6x Faster New Module Delivery",
+          "100% Accessible Component Parity",
+          "+190% Enterprise Demo Conversion"
+        ],
+        "stack": ["Design Tokens CSS", "WCAG AA Primitives", "Bilingual i18n", "Automated CI"]
+      },
+      {
+        "id": "nexa-logistics",
+        "sector": "Cloud",
+        "client": "Nexa Maritime & Supply Chain",
+        "location": "Rotterdam & Jakarta · Smart Logistics",
+        "title": "Cross-Continental Supply Chain Telemetry Platform",
+        "summary": "Real-time fleet and cargo orchestration platform with interactive isometric route mapping and high-frequency edge data synchronization.",
+        "outcomes": [
+          "-48% Data Synchronization Latency",
+          "42,000+ Logistics Events per Minute",
+          "4.9/5 Enterprise Partner Satisfaction"
+        ],
+        "stack": ["React 19", "Edge Caching", "Isometric Canvas", "REST & gRPC"]
+      }
+    ]
+  },
+  "roadmap": {
+    "kicker": "EXECUTION METHODOLOGY",
+    "heading": "Four Deterministic Phases to Production.",
+    "steps": [
+      {
+        "phase": "PHASE 01",
+        "duration": "Weeks 1 - 2",
+        "title": "Systems Cartography & Architecture Audit",
+        "body": "Comprehensive evaluation of existing infrastructure, UI/UX performance bottlenecks, and authoring of the technical blueprint and design token specification.",
+        "artifact": "Architecture Blueprint & Technical Roadmap Brief"
+      },
+      {
+        "phase": "PHASE 02",
+        "duration": "Weeks 3 - 5",
+        "title": "Design System & Core Component Fabrication",
+        "body": "Construction of centralized CSS tokens, accessible UI primitives, motion choreography, and end-to-end client/server API integration.",
+        "artifact": "Production Code Repository & Interactive Staging"
+      },
+      {
+        "phase": "PHASE 03",
+        "duration": "Weeks 6 - 7",
+        "title": "Load Verification & Security Hardening",
+        "body": "High-concurrency stress testing, WCAG AA accessibility verification, Core Web Vitals tuning, and strict input/schema security hardening.",
+        "artifact": "Performance Benchmark Report & Audit Sign-off"
+      },
+      {
+        "phase": "PHASE 04",
+        "duration": "Week 8",
+        "title": "Zero-Downtime Launch & Handover",
+        "body": "Global edge deployment, live observability telemetry wiring, and comprehensive technical enablement for your internal engineering teams.",
+        "artifact": "Live Production System & Operations Playbook"
+      }
+    ]
+  },
+  "partnership": {
+    "kicker": "INITIATE TECHNOLOGY PARTNERSHIP",
+    "heading": "Architect Your Next Digital Standard with Vektor Prima.",
+    "copy": "Submit your system parameters below. Our principal architects will prepare a technical assessment and schedule an architecture review session within 24 business hours.",
+    "form": {
+      "nameLabel": "Full Name & Title",
+      "nameHint": "Enter your full name and role",
+      "emailLabel": "Corporate Email Address",
+      "emailHint": "Enter your official corporate email",
+      "organizationLabel": "Company / Institution Name",
+      "organizationHint": "Enter your organization name",
+      "blueprintLabel": "Primary Architecture Module",
+      "scaleLabel": "Target Scale & Topology",
+      "notesLabel": "Project Scope & Objectives",
+      "notesHint": "Describe your target launch window, system integrations, or key business goals",
+      "submitBtn": "Submit Partnership Specification",
+      "validationError": "Please provide your full name, a valid corporate email, and company name."
+    },
+    "confirmation": {
+      "title": "Project Specification Recorded",
+      "subtitle": "Your technical configuration has been saved locally. Vektor Prima Studio principal architects are ready to review the following parameters:",
+      "resetBtn": "Create New Configuration"
+    }
+  },
+  "footer": {
+    "tagline": "Principal Enterprise Systems Engineering & Precision Digital Architecture Studio.",
+    "links": "Blueprints · Capacity Simulator · Production Ledger · Security Standards",
+    "copyright": "© 2026 Vektor Prima Studio. All rights reserved."
+  }
+}

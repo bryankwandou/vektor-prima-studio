@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+:root,
+[data-theme="light"] {
+  --color-primary: #059669;
+  --color-primary-variant: #047857;
+  --color-secondary: #0284c7;
+  --color-background: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eaeef3;
+  --color-on-primary: #f8fafc;
+  --color-on-surface: #0f172a;
+  --color-error: #dc2626;
+  --color-on-error: #f8fafc;
+  --color-outline: rgba(15, 23, 42, 0.12);
+  --color-outline-strong: rgba(15, 23, 42, 0.26);
+
+  --color-bg: var(--color-background);
+  --color-bg-panel: var(--color-surface);
+  --color-bg-subtle: var(--color-surface-elevated);
+  --color-fg: var(--color-on-surface);
+  --color-muted: #475569;
+  --color-faint: #64748b;
+  --color-line: var(--color-outline);
+  --color-line-strong: var(--color-outline-strong);
+  --color-accent: var(--color-primary);
+  --color-accent-alt: var(--color-secondary);
+
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+[data-theme="dark"] {
+  --color-primary: #10b981;
+  --color-primary-variant: #34d399;
+  --color-secondary: #38bdf8;
+  --color-background: #101318;
+  --color-surface: #161b22;
+  --color-surface-elevated: #1c222b;
+  --color-on-primary: #101318;
+  --color-on-surface: #f1f5f9;
+  --color-error: #f87171;
+  --color-on-error: #101318;
+  --color-outline: rgba(241, 245, 249, 0.11);
+  --color-outline-strong: rgba(241, 245, 249, 0.24);
+
+  --color-bg: var(--color-background);
+  --color-bg-panel: var(--color-surface);
+  --color-bg-subtle: var(--color-surface-elevated);
+  --color-fg: var(--color-on-surface);
+  --color-muted: #94a3b8;
+  --color-faint: #64748b;
+  --color-line: var(--color-outline);
+  --color-line-strong: var(--color-outline-strong);
+  --color-accent: var(--color-primary);
+  --color-accent-alt: var(--color-secondary);
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-bg-panel: var(--color-bg-panel);
+  --color-bg-subtle: var(--color-bg-subtle);
+  --color-fg: var(--color-fg);
+  --color-muted: var(--color-muted);
+  --color-faint: var(--color-faint);
+  --color-line: var(--color-line);
+  --color-line-strong: var(--color-line-strong);
+  --color-accent: var(--color-accent);
+  --color-accent-alt: var(--color-accent-alt);
+  --color-error: var(--color-error);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  transition: background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  min-height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-on-primary);
+}
+
+.tech-grid-bg {
+  background-size: 36px 36px;
+  background-image:
+    linear-gradient(to right, var(--color-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
+}
+
+.reveal-block {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-block.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ticker-stream {
+  width: max-content;
+  display: flex;
+  animation: 28s linear infinite stream-scroll;
+}
+
+.ticker-stream:hover {
+  animation-play-state: paused;
+}
+
+@keyframes stream-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-stream {
+    animation: none !important;
+  }
+  .reveal-block,
+  .reveal-block.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

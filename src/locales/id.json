@@ -1,0 +1,319 @@
+{
+  "brand": {
+    "name": "Vektor Prima Studio",
+    "code": "VPS-CORE // 4.2",
+    "status": "SELURUH KLASTER PRODUKSI NORMAL",
+    "region": "JAKARTA · SINGAPURA · ZURICH"
+  },
+  "nav": {
+    "homeAria": "Beranda Vektor Prima Studio",
+    "blueprints": "Cetak Biru Sistem",
+    "simulator": "Kalkulator Kapasitas",
+    "deliveries": "Portofolio Produksi",
+    "roadmap": "Tahapan Eksekusi",
+    "partnership": "Inisiasi Proyek",
+    "switchTheme": "Ganti tema warna",
+    "switchLang": "Ganti bahasa tampilan",
+    "openMenu": "Buka navigasi",
+    "closeMenu": "Tutup navigasi"
+  },
+  "hero": {
+    "badge": "STUDIO REKAYASA PERANGKAT LUNak & ARSITEKTUR ENTERPRISE",
+    "title": "Rekayasa Sistem Digital Berkinerja Tinggi untuk Skala Institusi.",
+    "subtitle": "Vektor Prima Studio merancang platform web interaktif, infrastruktur cloud terdistribusi, dan sistem desain terpusat dengan latensi sub-15ms serta keandalan tingkat perbankan.",
+    "primaryCta": "Konfigurasi Spesifikasi Proyek",
+    "secondaryCta": "Simulasikan Beban Infrastruktur",
+    "canvasTitle": "MATRIKS TOPOLOGI 3D INTERAKTIF",
+    "canvasHint": "Klik node arsitektur untuk memeriksa telemetri langsung atau geser kursor untuk memutar proyeksi",
+    "triggerBurst": "Kirim Paket Uji",
+    "metrics": [
+      { "value": "99.99%", "label": "Jaminan SLA Produksi" },
+      { "value": "11.4 ms", "label": "Rata-rata Respons Edge" },
+      { "value": "64+", "label": "Implementasi Korporasi" },
+      { "value": "100%", "label": "Kepatuhan Audit Keamanan" }
+    ],
+    "nodes": [
+      {
+        "id": "edge-gateway",
+        "name": "Gerbang Anycast Edge",
+        "role": "Perutean Trafik Global & Mitigasi DDoS",
+        "latency": "1.8 ms",
+        "throughput": "142.000 req/dtk",
+        "status": "Aktif · 16 PoP"
+      },
+      {
+        "id": "kinetic-ui",
+        "name": "Mesin Render Antarmuka",
+        "role": "Orkestrasi Komponen Web 120fps & Token CSS",
+        "latency": "3.2 ms",
+        "throughput": "99.8 Skor Lighthouse",
+        "status": "Teroptimasi GPU"
+      },
+      {
+        "id": "mesh-compute",
+        "name": "Klaster Komputasi Mikro",
+        "role": "Orkestrasi Kontainer Otomatis Lintas Zona",
+        "latency": "6.4 ms",
+        "throughput": "88.500 tx/dtk",
+        "status": "Auto-Scaling"
+      },
+      {
+        "id": "vault-ledger",
+        "name": "Inti Kriptografi Zero-Trust",
+        "role": "Enkripsi Data Transaksi & Audit Imutabel",
+        "latency": "2.1 ms",
+        "throughput": "AEAD-256 GCM",
+        "status": "Tersertifikasi"
+      },
+      {
+        "id": "telemetry-bus",
+        "name": "Bus Observabilitas Real-Time",
+        "role": "Pemantauan Metrik, Log, & Deteksi Anomali",
+        "latency": "4.0 ms",
+        "throughput": "1.2 Juta event/mnt",
+        "status": "Streaming"
+      }
+    ]
+  },
+  "ticker": [
+    "ARSITEKTUR CLOUD HIBRIDA",
+    "SISTEM DESAIN MULTI-PLATFORM",
+    "REKAYASA FRONTEND KINETIK",
+    "KEAMANAN ZERO-TRUST",
+    "OPTIMASI CORE WEB VITALS",
+    "INTEGRASI API BERSKALA BESAR"
+  ],
+  "blueprints": {
+    "kicker": "CETAK BIRU ARSITEKTUR",
+    "heading": "Empat Pilar Rekayasa Vektor Prima.",
+    "subheading": "Pilih modul arsitektur untuk memeriksa skema aliran data, tumpukan teknologi, dan tolok ukur performa.",
+    "tabs": [
+      {
+        "id": "web-platform",
+        "code": "MOD-01",
+        "title": "Platform Web Kinetik",
+        "tagline": "Antarmuka korporasi berkecepatan tinggi dengan koreografi gerak presisi",
+        "description": "Kami membangun aplikasi web dan portal korporasi yang menggabungkan waktu muat instan dengan interaksi visual yang halus, meningkatkan konversi kemitraan B2B secara terukur.",
+        "pipeline": ["Klien Browser", "Edge CDN Cache", "SSR Streaming Engine", "Design Token Store"],
+        "benchmarks": [
+          { "label": "First Contentful Paint", "val": "0.48 dtk" },
+          { "label": "Target Frame Rate", "val": "120 fps" },
+          { "label": "Ukuran Bundle Inti", "val": "14.2 kB" }
+        ],
+        "deliverables": [
+          "Arsitektur React 19 & TypeScript dengan strict typing penuh",
+          "Koreografi animasi berbasis fisika pegas dan akselerasi GPU",
+          "Kepatuhan penuh aksesibilitas WCAG 2.1 Level AA"
+        ]
+      },
+      {
+        "id": "cloud-fabric",
+        "code": "MOD-02",
+        "title": "Jaringan Cloud Terdistribusi",
+        "tagline": "Infrastruktur multi-region dengan failover otomatis tanpa waktu henti",
+        "description": "Perancangan topologi cloud yang tahan terhadap lonjakan trafik ekstrem, dilengkapi replikasi state lintas wilayah dan penyeimbangan beban cerdas.",
+        "pipeline": ["DNS Anycast", "API Gateway", "Service Mesh", "Database Terdistribusi"],
+        "benchmarks": [
+          { "label": "Waktu Failover", "val": "< 65 ms" },
+          { "label": "Ketersediaan Tahunan", "val": "99.995%" },
+          { "label": "Efisiensi Komputasi", "val": "+42%" }
+        ],
+        "deliverables": [
+          "Infrastruktur sebagai Kode (IaC) yang terdokumentasi penuh",
+          "Pipeline CI/CD otomatis dengan pengujian regresi berlapis",
+          "Dasbor telemetri real-time untuk pemantauan kesehatan node"
+        ]
+      },
+      {
+        "id": "design-system",
+        "code": "MOD-03",
+        "title": "Sistem Desain Enterprise",
+        "tagline": "Satu sumber kebenaran visual untuk seluruh lini produk digital Anda",
+        "description": "Menyatukan puluhan aplikasi internal maupun eksternal ke dalam pustaka komponen tunggal dengan token warna, tipografi, dan lokalisasi dwibahasa otomatis.",
+        "pipeline": ["Token Semantik CSS", "Pustaka Primitif UI", "Dokumentasi Interaktif", "Sinkronisasi NPM"],
+        "benchmarks": [
+          { "label": "Kecepatan Rilis Fitur", "val": "2.8x Lebih Cepat" },
+          { "label": "Konsistensi Antar Aplikasi", "val": "100%" },
+          { "label": "Dukungan Tema", "val": "Gelap & Terang" }
+        ],
+        "deliverables": [
+          "Sistem token terpusat tanpa duplikasi nilai warna hardcode",
+          "Komponen aksesibel dengan navigasi keyboard lengkap",
+          "Dukungan lokalisasi multi-bahasa instan tanpa muat ulang"
+        ]
+      },
+      {
+        "id": "security-core",
+        "code": "MOD-04",
+        "title": "Inti Keamanan Finansial",
+        "tagline": "Perlindungan berlapis dan validasi skema ketat untuk transaksi bernilai tinggi",
+        "description": "Arsitektur keamanan ujung-ke-ujung untuk institusi keuangan, platform pembayaran, dan manajemen data korporasi dengan jejak audit terenkripsi.",
+        "pipeline": ["WAF & Rate Limiter", "Validasi Skema Ketat", "Otorisasi Berbasis Peran", "Penyimpanan Terenkripsi"],
+        "benchmarks": [
+          { "label": "Overhead Verifikasi", "val": "1.9 ms" },
+          { "label": "Standar Enkripsi", "val": "TLS 1.3 / AEAD" },
+          { "label": "Celah Keamanan Kritis", "val": "0 Temuan" }
+        ],
+        "deliverables": [
+          "Validasi input sisi server dan sanitasi menyeluruh",
+          "Manajemen sesi aman dan rotasi kunci kriptografi otomatis",
+          "Laporan audit keamanan berkala dan pengujian beban penetrasi"
+        ]
+      }
+    ]
+  },
+  "simulator": {
+    "kicker": "SIMULATOR KAPASITAS & EFISIENSI",
+    "heading": "Hitung Skala Arsitektur Proyek Anda Secara Langsung.",
+    "subheading": "Sesuaikan parameter trafik dan target SLA di bawah ini untuk melihat estimasi performa sistem serta komposisi tim rekayasa yang direkomendasikan.",
+    "usersLabel": "Volume Pengguna Aktif Bulanan",
+    "usersUnit": "Pengguna",
+    "slaLabel": "Target Tingkat Ketersediaan (SLA)",
+    "topologyLabel": "Model Topologi Deployment",
+    "topologies": [
+      { "id": "single", "name": "Klaster Tunggal Teroptimasi", "latencyFactor": 1.0, "costSaving": 28 },
+      { "id": "multi", "name": "Multi-Region Aktif-Aktif", "latencyFactor": 0.68, "costSaving": 36 },
+      { "id": "hybrid", "name": "Sovereign Cloud Hibrida", "latencyFactor": 0.74, "costSaving": 44 }
+    ],
+    "outputs": {
+      "throughput": "Kapasitas Puncak Terukur",
+      "latency": "Estimasi Latensi P99",
+      "savings": "Efisiensi Biaya Infrastruktur",
+      "squad": "Alokasi Tim Rekayasa",
+      "timeline": "Estimasi Siklus Peluncuran",
+      "weeks": "Minggu",
+      "engineers": "Arsitek & Insinyur Senior",
+      "applyCta": "Gunakan Konfigurasi Ini di Proposal"
+    }
+  },
+  "deliveries": {
+    "kicker": "REKAM IMPLEMENTASI PRODUKSI",
+    "heading": "Hasil Terukur dari Kemitraan Teknologi.",
+    "filterAll": "Semua Sektor",
+    "inspectBtn": "Buka Detail Teknis",
+    "closeModal": "Tutup Dokumen",
+    "architectureLabel": "Tumpukan Arsitektur",
+    "outcomesLabel": "Metrik Hasil Produksi",
+    "items": [
+      {
+        "id": "sentra-Clearing",
+        "sector": "FinTech",
+        "client": "Sentra Clearing Nusantara",
+        "location": "Jakarta · Jaringan Penyelesaian",
+        "title": "Modernisasi Portal Kliring & Likuiditas Institusional",
+        "summary": "Perancangan ulang antarmuka eksekusi kliring lintas bank dengan visualisasi aliran dana real-time dan pemangkasan waktu respons antarmuka sebesar 71%.",
+        "outcomes": [
+          "+165% Peningkatan Kecepatan Eksekusi Operator",
+          "11.2 ms Waktu Pembaruan Data WebSocket",
+          "100% Lulus Audit Kepatuhan Infrastruktur"
+        ],
+        "stack": ["React 19", "TypeScript", "Tailwind Token Engine", "WebSockets"]
+      },
+      {
+        "id": "stratos-edge",
+        "sector": "Cloud",
+        "client": "Stratos Asia Infrastructure",
+        "location": "Singapura · Pengendali Jaringan",
+        "title": "Konsol Observabilitas 18.000 Node Komputasi",
+        "summary": "Pembangunan konsol kendali cloud berbasis kanvas interaktif yang mampu menampilkan status ribuan server secara serentak pada 120fps.",
+        "outcomes": [
+          "-64% Penggunaan Memori Peramban",
+          "0.52 dtk Waktu Muat Halaman Awal",
+          "99.99% Keandalan Sistem Pemantauan"
+        ],
+        "stack": ["Vite", "Canvas 2D Engine", "GSAP", "Distributed Telemetry"]
+      },
+      {
+        "id": "kinetika-med",
+        "sector": "Enterprise AI",
+        "client": "Kinetika Diagnostik Digital",
+        "location": "Surabaya & Singapura · Platform Analitik",
+        "title": "Sistem Desain Terpadu untuk 14 Aplikasi Analitik",
+        "summary": "Konsolidasi antarmuka 14 produk perangkat lunak ke dalam satu sistem desain terpusat dengan mode gelap/terang dan lokalisasi penuh.",
+        "outcomes": [
+          "2.6x Percepatan Peluncuran Modul Baru",
+          "100% Konsistensi Komponen Aksesibel",
+          "+190% Konversi Demo Klien Korporasi"
+        ],
+        "stack": ["Design Tokens CSS", "WCAG AA Primitives", "Bilingual i18n", "Automated CI"]
+      },
+      {
+        "id": "nexa-logistics",
+        "sector": "Cloud",
+        "client": "Nexa Maritime & Supply Chain",
+        "location": "Rotterdam & Jakarta · Logistik Pintar",
+        "title": "Platform Pelacakan Rantai Pasok Lintas Benua",
+        "summary": "Portal pelacakan armada dan kargo real-time dengan peta topologi interaktif serta sinkronisasi data tepi (edge) berkecepatan tinggi.",
+        "outcomes": [
+          "-48% Penurunan Latensi Sinkronisasi Data",
+          "42.000+ Transaksi Logistik per Menit",
+          "4.9/5 Tingkat Kepuasan Mitra Korporasi"
+        ],
+        "stack": ["React 19", "Edge Caching", "Isometric Canvas", "REST & gRPC"]
+      }
+    ]
+  },
+  "roadmap": {
+    "kicker": "METODOLOGI EKSEKUSI",
+    "heading": "Empat Tahap Deterministik Menuju Produksi.",
+    "steps": [
+      {
+        "phase": "TAHAP 01",
+        "duration": "Minggu 1 - 2",
+        "title": "Pemetaan Sistem & Audit Arsitektur",
+        "body": "Evaluasi menyeluruh terhadap infrastruktur saat ini, hambatan performa UI/UX, serta penyusunan cetak biru teknis dan spesifikasi token desain.",
+        "artifact": "Dokumen Cetak Biru Arsitektur & Peta Jalan Teknis"
+      },
+      {
+        "phase": "TAHAP 02",
+        "duration": "Minggu 3 - 5",
+        "title": "Fabrikasi Sistem Desain & Komponen Inti",
+        "body": "Pembangunan sistem token terpusat, pustaka komponen aksesibel, koreografi interaksi, serta integrasi API sisi klien dan server.",
+        "artifact": "Repositori Kode Produksi & Staging Interaktif"
+      },
+      {
+        "phase": "TAHAP 03",
+        "duration": "Minggu 6 - 7",
+        "title": "Verifikasi Beban & Penguatan Keamanan",
+        "body": "Pengujian stres kapasitas tinggi, audit kepatuhan aksesibilitas WCAG AA, optimasi Core Web Vitals, dan pengetatan validasi keamanan.",
+        "artifact": "Laporan Benchmark Performa & Sertifikasi Audit"
+      },
+      {
+        "phase": "TAHAP 04",
+        "duration": "Minggu 8",
+        "title": "Peluncuran Zero-Downtime & Serah Terima",
+        "body": "Deployment ke jaringan edge global, konfigurasi telemetri pemantauan langsung, serta pelatihan tim internal perusahaan Anda.",
+        "artifact": "Sistem Produksi Aktif & Dokumentasi Operasional"
+      }
+    ]
+  },
+  "partnership": {
+    "kicker": "INISIASI KEMITRAAN TEKNOLOGI",
+    "heading": "Bangun Standar Digital Baru Bersama Vektor Prima.",
+    "copy": "Kirimkan parameter kebutuhan sistem Anda. Arsitek utama kami akan menyusun evaluasi teknis dan jadwal sesi konsultasi arsitektur dalam waktu 24 jam kerja.",
+    "form": {
+      "nameLabel": "Nama Lengkap & Jabatan",
+      "nameHint": "Masukkan nama lengkap dan jabatan Anda",
+      "emailLabel": "Alamat Email Korporasi",
+      "emailHint": "Masukkan email resmi perusahaan Anda",
+      "organizationLabel": "Nama Perusahaan / Institusi",
+      "organizationHint": "Masukkan nama entitas perusahaan",
+      "blueprintLabel": "Fokus Modul Arsitektur",
+      "scaleLabel": "Target Skala & Konfigurasi",
+      "notesLabel": "Ringkasan Kebutuhan Proyek",
+      "notesHint": "Jelaskan target peluncuran, integrasi sistem, atau sasaran bisnis utama",
+      "submitBtn": "Kirim Spesifikasi Kemitraan",
+      "validationError": "Mohon lengkapi nama, email korporasi yang valid, dan nama perusahaan."
+    },
+    "confirmation": {
+      "title": "Spesifikasi Proyek Berhasil Direkam",
+      "subtitle": "Ringkasan konfigurasi teknis Anda telah tersimpan. Tim arsitek Vektor Prima Studio siap menindaklanjuti rincian berikut:",
+      "resetBtn": "Buat Konfigurasi Baru"
+    }
+  },
+  "footer": {
+    "tagline": "Studio Rekayasa Sistem Enterprise & Arsitektur Digital Presisi.",
+    "links": "Cetak Biru · Kalkulator Kapasitas · Portofolio · Standar Keamanan",
+    "copyright": "© 2026 Vektor Prima Studio. Seluruh hak cipta dilindungi."
+  }
+}
