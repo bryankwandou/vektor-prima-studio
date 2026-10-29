@@ -20,19 +20,24 @@ import {
 } from 'lucide-react';
 import { useAppSettings } from './context/AppSettingsContext';
 import {
+  BlueprintFlowCanvas,
   IsometricTopologyCanvas,
+  SimulatorWaveCanvas,
   VektorLogo,
 } from './components/TopologyCanvas';
 import {
+  KernelBootSequence,
   MOTION_TIMING,
   MagneticActionButton,
+  PrecisionReticleCursor,
   RevealBlock,
   SmoothScrollWrapper,
+  TiltSurfaceCard,
   TopProgressIndicator,
   scrollToSection,
 } from './components/MotionPrimitives';
 
-function ArchitecturalHeader() {
+function ArchitecturalHeader({ hidden }: { hidden: boolean }) {
   const { t, theme, toggleTheme, locale, toggleLocale } = useAppSettings();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -49,9 +54,12 @@ function ArchitecturalHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur-md">
-      {/* Top Telemetry Status Strip */}
-      <div className="border-b border-line bg-bg-panel px-4 py-1.5 text-[11px] font-mono text-muted md:px-10">
+    <header
+      className={`sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur-md transition-opacity duration-500 ${
+        hidden ? 'pointer-events-none opacity-0' : 'opacity-100'
+      }`}
+    >
+      <div className="border-b border-line bg-bg-panel px-4 py-1.5 font-mono text-[11px] text-muted md:px-10">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="size-2 animate-pulse rounded-full bg-accent" />
@@ -63,13 +71,12 @@ function ArchitecturalHeader() {
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-10">
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label={t.nav.homeAria}
-          className="flex min-h-11 items-center gap-3 rounded-lg pr-2 focus-visible:ring-2 focus-visible:ring-accent"
+          className="flex min-h-12 items-center gap-3 rounded-lg pr-2 focus-visible:ring-2 focus-visible:ring-accent"
         >
           <VektorLogo className="size-8 text-fg" />
           <span className="font-display text-base font-bold tracking-tight text-fg">
@@ -83,7 +90,7 @@ function ArchitecturalHeader() {
               key={item.id}
               type="button"
               onClick={() => handleJump(item.id)}
-              className="min-h-11 rounded-lg px-3.5 py-2 text-sm font-medium text-muted transition-colors hover:bg-bg-subtle hover:text-fg focus-visible:ring-2 focus-visible:ring-accent"
+              className="min-h-12 rounded-lg px-3.5 py-2 text-sm font-medium text-muted transition-colors hover:bg-bg-subtle hover:text-fg focus-visible:ring-2 focus-visible:ring-accent"
             >
               {item.label}
             </button>
@@ -95,9 +102,9 @@ function ArchitecturalHeader() {
             type="button"
             onClick={toggleLocale}
             aria-label={t.nav.switchLang}
-            className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-line bg-bg-panel px-3 py-2 font-mono text-xs font-semibold uppercase text-fg transition-colors hover:border-line-strong focus-visible:ring-2 focus-visible:ring-accent"
+            className="inline-flex min-h-12 items-center gap-1.5 rounded-lg border border-line bg-bg-panel px-3.5 py-2 font-mono text-xs font-semibold uppercase text-fg transition-colors hover:border-line-strong focus-visible:ring-2 focus-visible:ring-accent"
           >
-            <Globe className="size-3.5 text-accent" aria-hidden="true" />
+            <Globe className="size-4 text-accent" aria-hidden="true" />
             <span>{locale.toUpperCase()}</span>
           </button>
 
@@ -105,7 +112,7 @@ function ArchitecturalHeader() {
             type="button"
             onClick={toggleTheme}
             aria-label={t.nav.switchTheme}
-            className="grid size-11 place-items-center rounded-lg border border-line bg-bg-panel text-fg transition-colors hover:border-line-strong focus-visible:ring-2 focus-visible:ring-accent"
+            className="grid size-12 place-items-center rounded-lg border border-line bg-bg-panel text-fg transition-colors hover:border-line-strong focus-visible:ring-2 focus-visible:ring-accent"
           >
             {theme === 'dark' ? (
               <Sun className="size-4 text-accent" aria-hidden="true" />
@@ -117,17 +124,17 @@ function ArchitecturalHeader() {
           <button
             type="button"
             onClick={() => handleJump('partnership')}
-            className="hidden min-h-11 items-center gap-1.5 rounded-lg bg-fg px-4 py-2 text-xs font-semibold uppercase tracking-wider text-bg transition-transform active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-accent sm:inline-flex"
+            className="hidden min-h-12 items-center gap-1.5 rounded-lg bg-fg px-4 py-2 text-xs font-semibold uppercase tracking-wider text-bg transition-transform active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-accent sm:inline-flex"
           >
             <span>{t.nav.partnership}</span>
-            <ArrowUpRight className="size-3.5" aria-hidden="true" />
+            <ArrowUpRight className="size-4" aria-hidden="true" />
           </button>
 
           <button
             type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-label={mobileMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
-            className="grid size-11 place-items-center rounded-lg border border-line bg-bg-panel lg:hidden"
+            className="grid size-12 place-items-center rounded-lg border border-line bg-bg-panel lg:hidden"
           >
             {mobileMenuOpen ? (
               <X className="size-5" aria-hidden="true" />
@@ -146,7 +153,7 @@ function ArchitecturalHeader() {
                 key={item.id}
                 type="button"
                 onClick={() => handleJump(item.id)}
-                className="min-h-11 rounded-lg px-3 py-3 text-left font-display text-lg font-semibold text-fg hover:bg-bg-subtle"
+                className="min-h-12 rounded-lg px-3 py-3 text-left font-display text-lg font-semibold text-fg hover:bg-bg-subtle"
               >
                 {item.label}
               </button>
@@ -154,7 +161,7 @@ function ArchitecturalHeader() {
             <button
               type="button"
               onClick={() => handleJump('partnership')}
-              className="mt-2 min-h-11 rounded-lg bg-accent px-4 py-3 text-center font-display text-sm font-semibold uppercase tracking-wider text-bg"
+              className="mt-2 min-h-12 rounded-lg bg-accent px-4 py-3 text-center font-display text-sm font-semibold uppercase tracking-wider text-bg"
             >
               {t.nav.partnership}
             </button>
@@ -165,7 +172,7 @@ function ArchitecturalHeader() {
   );
 }
 
-function HeroArchitectureSection() {
+function HeroArchitectureSection({ ready }: { ready: boolean }) {
   const { t } = useAppSettings();
   const heroRef = useRef<HTMLElement | null>(null);
   const [activeNodeIndex, setActiveNodeIndex] = useState(0);
@@ -174,15 +181,17 @@ function HeroArchitectureSection() {
   const selectedNode = t.hero.nodes[activeNodeIndex] ?? t.hero.nodes[0];
 
   useEffect(() => {
+    if (!ready) return;
     const el = heroRef.current;
     if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el.querySelectorAll('[data-hero-enter]'),
-        { y: 24, opacity: 0 },
+        { y: 26, opacity: 0, filter: 'blur(6px)' },
         {
           y: 0,
           opacity: 1,
+          filter: 'blur(0px)',
           duration: MOTION_TIMING.HERO_DURATION,
           stagger: MOTION_TIMING.HERO_STAGGER,
           ease: 'power3.out',
@@ -190,13 +199,12 @@ function HeroArchitectureSection() {
       );
     }, el);
     return () => ctx.revert();
-  }, []);
+  }, [ready]);
 
   return (
     <section ref={heroRef} className="tech-grid-bg relative border-b border-line py-14 md:py-24">
       <div className="mx-auto max-w-7xl px-4 md:px-10">
         <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
-          {/* Left Column: Architectural Statement */}
           <div>
             <div
               data-hero-enter="true"
@@ -241,14 +249,16 @@ function HeroArchitectureSection() {
               </MagneticActionButton>
             </div>
 
-            {/* 4-Column Metric Strip */}
             <div
               data-hero-enter="true"
               className="mt-12 grid grid-cols-2 gap-4 border-t border-line pt-8 sm:grid-cols-4"
             >
               {t.hero.metrics.map((stat) => (
-                <div key={stat.label}>
-                  <p className="font-display text-2xl font-bold tracking-tight tabular-nums text-fg md:text-3xl">
+                <div
+                  key={stat.label}
+                  className="rounded-lg border border-line bg-bg-panel/80 p-3.5"
+                >
+                  <p className="font-display text-2xl font-bold tracking-tight text-fg tabular-nums md:text-3xl">
                     {stat.value}
                   </p>
                   <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-muted">
@@ -259,7 +269,6 @@ function HeroArchitectureSection() {
             </div>
           </div>
 
-          {/* Right Column: Interactive 3D Topology Matrix */}
           <div
             data-hero-enter="true"
             className="overflow-hidden rounded-xl border border-line-strong bg-bg-panel"
@@ -277,7 +286,7 @@ function HeroArchitectureSection() {
                   setBurstSignal((prev) => prev + 1);
                   setActiveNodeIndex((prev) => (prev + 1) % t.hero.nodes.length);
                 }}
-                className="min-h-9 rounded-md border border-line bg-bg px-3 py-1 font-mono text-[11px] font-medium text-accent transition-colors hover:border-accent focus-visible:ring-2 focus-visible:ring-accent"
+                className="min-h-12 rounded-lg border border-line bg-bg px-3.5 py-2 font-mono text-xs font-medium text-accent transition-colors hover:border-accent focus-visible:ring-2 focus-visible:ring-accent"
               >
                 {t.hero.triggerBurst}
               </button>
@@ -286,7 +295,10 @@ function HeroArchitectureSection() {
             <div className="relative h-72 w-full bg-bg sm:h-80">
               <IsometricTopologyCanvas
                 activeNodeIndex={activeNodeIndex}
-                onSelectNode={(idx) => setActiveNodeIndex(idx)}
+                onSelectNode={(idx) => {
+                  setActiveNodeIndex(idx);
+                  setBurstSignal((prev) => prev + 1);
+                }}
                 burstSignal={burstSignal}
               />
               <p className="pointer-events-none absolute inset-x-4 bottom-3 text-center font-mono text-[11px] text-faint">
@@ -294,15 +306,17 @@ function HeroArchitectureSection() {
               </p>
             </div>
 
-            {/* Node Selector Tabs & Live Inspector */}
             <div className="border-t border-line bg-bg-panel p-5">
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-2">
                 {t.hero.nodes.map((node, idx) => (
                   <button
                     key={node.id}
                     type="button"
-                    onClick={() => setActiveNodeIndex(idx)}
-                    className={`min-h-9 rounded-md px-2.5 py-1 font-mono text-xs transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
+                    onClick={() => {
+                      setActiveNodeIndex(idx);
+                      setBurstSignal((prev) => prev + 1);
+                    }}
+                    className={`min-h-12 rounded-lg px-3 py-2 font-mono text-xs transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
                       idx === activeNodeIndex
                         ? 'bg-accent font-semibold text-bg'
                         : 'border border-line bg-bg text-muted hover:text-fg'
@@ -391,47 +405,46 @@ function BlueprintExplorerSection({
           </p>
         </RevealBlock>
 
-        {/* Module Selector Tabs */}
         <RevealBlock delay={0.06} className="mt-10">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {t.blueprints.tabs.map((tab, idx) => {
               const active = idx === activeTabIdx;
               return (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => {
-                    setActiveTabIdx(idx);
-                    onSelectBlueprintForForm(tab.title);
-                  }}
-                  className={`rounded-xl border p-5 text-left transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
-                    active
-                      ? 'border-accent bg-bg-panel'
-                      : 'border-line bg-bg hover:border-line-strong'
-                  }`}
-                >
-                  <div className="flex items-center justify-between font-mono text-xs">
-                    <span className={active ? 'text-accent font-semibold' : 'text-faint'}>
-                      {tab.code}
-                    </span>
-                    <Layers
-                      className={`size-4 ${active ? 'text-accent' : 'text-faint'}`}
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <p className="mt-2 font-display text-lg font-bold text-fg">
-                    {tab.title}
-                  </p>
-                  <p className="mt-1 text-xs leading-relaxed text-muted">
-                    {tab.tagline}
-                  </p>
-                </button>
+                <TiltSurfaceCard key={tab.id}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveTabIdx(idx);
+                      onSelectBlueprintForForm(tab.title);
+                    }}
+                    className={`min-h-12 h-full w-full rounded-xl border p-5 text-left transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
+                      active
+                        ? 'border-accent bg-bg-panel'
+                        : 'border-line bg-bg hover:border-line-strong'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between font-mono text-xs">
+                      <span className={active ? 'font-semibold text-accent' : 'text-faint'}>
+                        {tab.code}
+                      </span>
+                      <Layers
+                        className={`size-4 ${active ? 'text-accent' : 'text-faint'}`}
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <p className="mt-2 font-display text-lg font-bold text-fg">
+                      {tab.title}
+                    </p>
+                    <p className="mt-1 text-xs leading-relaxed text-muted">
+                      {tab.tagline}
+                    </p>
+                  </button>
+                </TiltSurfaceCard>
               );
             })}
           </div>
         </RevealBlock>
 
-        {/* Active Blueprint Schematic Panel */}
         <RevealBlock delay={0.12} className="mt-6">
           <div className="grid gap-8 rounded-xl border border-line bg-bg-panel p-6 md:p-10 lg:grid-cols-[1.15fr_1fr]">
             <div>
@@ -445,23 +458,27 @@ function BlueprintExplorerSection({
                 {currentTab.description}
               </p>
 
-              {/* Visual Data-Flow Pipeline */}
-              <div className="mt-8">
-                <div className="grid gap-2 sm:grid-cols-4">
-                  {currentTab.pipeline.map((stage, sIdx) => (
-                    <div
-                      key={stage}
-                      className="relative flex flex-col justify-between rounded-lg border border-line bg-bg p-3.5"
-                    >
-                      <span className="font-mono text-[10px] text-accent">
-                        STAGE 0{sIdx + 1}
-                      </span>
-                      <span className="mt-2 font-display text-xs font-semibold text-fg">
-                        {stage}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+              <div className="mt-6">
+                <BlueprintFlowCanvas
+                  activeTabIdx={activeTabIdx}
+                  stages={currentTab.pipeline}
+                />
+              </div>
+
+              <div className="mt-4 grid gap-2 sm:grid-cols-4">
+                {currentTab.pipeline.map((stage, sIdx) => (
+                  <div
+                    key={stage}
+                    className="relative flex flex-col justify-between rounded-lg border border-line bg-bg p-3.5"
+                  >
+                    <span className="font-mono text-[10px] text-accent">
+                      STAGE 0{sIdx + 1}
+                    </span>
+                    <span className="mt-2 font-display text-xs font-semibold text-fg">
+                      {stage}
+                    </span>
+                  </div>
+                ))}
               </div>
 
               <ul className="mt-8 space-y-2.5 border-t border-line pt-6 text-sm text-fg">
@@ -492,7 +509,7 @@ function BlueprintExplorerSection({
                       <dt className="text-xs uppercase tracking-wider text-muted">
                         {bm.label}
                       </dt>
-                      <dd className="font-mono text-xl font-bold tabular-nums text-fg">
+                      <dd className="font-mono text-xl font-bold text-fg tabular-nums">
                         {bm.val}
                       </dd>
                     </div>
@@ -543,6 +560,7 @@ function CapacitySimulatorSection({
   ).toFixed(1);
   const squadSize = monthlyUsers > 1000000 ? 6 : monthlyUsers > 300000 ? 4 : 3;
   const weeksToLaunch = monthlyUsers > 1000000 ? 10 : 8;
+  const loadFactor = monthlyUsers / 2500000;
 
   const configurationString = `${monthlyUsers.toLocaleString()} MAU · SLA ${slaOptions[slaIndex]} · ${currentTopology.name}`;
 
@@ -565,7 +583,6 @@ function CapacitySimulatorSection({
         </RevealBlock>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_1fr]">
-          {/* Controls Panel */}
           <RevealBlock className="space-y-6 rounded-xl border border-line bg-bg p-6 md:p-8">
             <div>
               <div className="flex items-center justify-between">
@@ -575,7 +592,7 @@ function CapacitySimulatorSection({
                 >
                   {t.simulator.usersLabel}
                 </label>
-                <span className="font-mono text-lg font-bold tabular-nums text-accent">
+                <span className="font-mono text-lg font-bold text-accent tabular-nums">
                   {monthlyUsers.toLocaleString()} {t.simulator.usersUnit}
                 </span>
               </div>
@@ -587,6 +604,7 @@ function CapacitySimulatorSection({
                 step={25000}
                 value={monthlyUsers}
                 onChange={(e) => setMonthlyUsers(Number(e.target.value))}
+                data-native-cursor="true"
                 className="mt-3 h-2 w-full cursor-pointer accent-accent"
               />
             </div>
@@ -601,7 +619,7 @@ function CapacitySimulatorSection({
                     key={sla}
                     type="button"
                     onClick={() => setSlaIndex(idx)}
-                    className={`min-h-11 rounded-lg border font-mono text-sm font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
+                    className={`min-h-12 rounded-lg border font-mono text-sm font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
                       idx === slaIndex
                         ? 'border-accent bg-accent text-bg'
                         : 'border-line bg-bg-panel text-fg hover:border-line-strong'
@@ -623,7 +641,7 @@ function CapacitySimulatorSection({
                     key={topo.id}
                     type="button"
                     onClick={() => setTopologyIndex(idx)}
-                    className={`min-h-11 rounded-lg border p-3 text-left text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
+                    className={`min-h-12 rounded-lg border p-3 text-left text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
                       idx === topologyIndex
                         ? 'border-accent bg-accent text-bg'
                         : 'border-line bg-bg-panel text-fg hover:border-line-strong'
@@ -636,59 +654,68 @@ function CapacitySimulatorSection({
             </div>
           </RevealBlock>
 
-          {/* Computed Telemetry Readout */}
           <RevealBlock
             delay={0.08}
             className="flex flex-col justify-between rounded-xl border border-line-strong bg-bg p-6 md:p-8"
           >
-            <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-lg border border-line bg-bg-panel p-4">
-                <p className="font-mono text-[11px] uppercase tracking-wider text-muted">
-                  {t.simulator.outputs.throughput}
-                </p>
-                <p className="mt-2 font-display text-2xl font-bold tabular-nums text-fg md:text-3xl">
-                  {peakReqPerSec.toLocaleString()} req/s
-                </p>
+            <div>
+              <div className="mb-4">
+                <SimulatorWaveCanvas
+                  loadFactor={loadFactor}
+                  slaIndex={slaIndex}
+                  topologyIndex={topologyIndex}
+                />
               </div>
 
-              <div className="rounded-lg border border-line bg-bg-panel p-4">
-                <p className="font-mono text-[11px] uppercase tracking-wider text-muted">
-                  {t.simulator.outputs.latency}
-                </p>
-                <p className="mt-2 font-display text-2xl font-bold tabular-nums text-accent md:text-3xl">
-                  {estimatedLatency} ms
-                </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="rounded-lg border border-line bg-bg-panel p-4">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-muted">
+                    {t.simulator.outputs.throughput}
+                  </p>
+                  <p className="mt-2 font-display text-2xl font-bold text-fg tabular-nums md:text-3xl">
+                    {peakReqPerSec.toLocaleString()} req/s
+                  </p>
+                </div>
+
+                <div className="rounded-lg border border-line bg-bg-panel p-4">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-muted">
+                    {t.simulator.outputs.latency}
+                  </p>
+                  <p className="mt-2 font-display text-2xl font-bold text-accent tabular-nums md:text-3xl">
+                    {estimatedLatency} ms
+                  </p>
+                </div>
+
+                <div className="rounded-lg border border-line bg-bg-panel p-4">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-muted">
+                    {t.simulator.outputs.savings}
+                  </p>
+                  <p className="mt-2 font-display text-2xl font-bold text-fg tabular-nums md:text-3xl">
+                    +{currentTopology.costSaving}%
+                  </p>
+                </div>
+
+                <div className="rounded-lg border border-line bg-bg-panel p-4">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-muted">
+                    {t.simulator.outputs.timeline}
+                  </p>
+                  <p className="mt-2 font-display text-2xl font-bold text-fg tabular-nums md:text-3xl">
+                    {weeksToLaunch} {t.simulator.outputs.weeks}
+                  </p>
+                </div>
               </div>
 
-              <div className="rounded-lg border border-line bg-bg-panel p-4">
-                <p className="font-mono text-[11px] uppercase tracking-wider text-muted">
-                  {t.simulator.outputs.savings}
-                </p>
-                <p className="mt-2 font-display text-2xl font-bold tabular-nums text-fg md:text-3xl">
-                  +{currentTopology.costSaving}%
-                </p>
-              </div>
-
-              <div className="rounded-lg border border-line bg-bg-panel p-4">
-                <p className="font-mono text-[11px] uppercase tracking-wider text-muted">
-                  {t.simulator.outputs.timeline}
-                </p>
-                <p className="mt-2 font-display text-2xl font-bold tabular-nums text-fg md:text-3xl">
-                  {weeksToLaunch} {t.simulator.outputs.weeks}
+              <div className="mt-4 rounded-lg border border-line bg-bg-panel p-4">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs uppercase tracking-wider text-muted">
+                    {t.simulator.outputs.squad}
+                  </span>
+                  <Cpu className="size-4 text-accent" aria-hidden="true" />
+                </div>
+                <p className="mt-1 font-display text-lg font-bold text-fg">
+                  {squadSize} {t.simulator.outputs.engineers}
                 </p>
               </div>
-            </div>
-
-            <div className="mt-6 rounded-lg border border-line bg-bg-panel p-4">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs uppercase tracking-wider text-muted">
-                  {t.simulator.outputs.squad}
-                </span>
-                <Cpu className="size-4 text-accent" aria-hidden="true" />
-              </div>
-              <p className="mt-1 font-display text-lg font-bold text-fg">
-                {squadSize} {t.simulator.outputs.engineers}
-              </p>
             </div>
 
             <div className="mt-6">
@@ -754,7 +781,7 @@ function DeliveriesLedgerSection() {
                   key={sec}
                   type="button"
                   onClick={() => setSelectedSector(sec)}
-                  className={`min-h-10 rounded-lg border px-3.5 py-2 font-mono text-xs font-semibold uppercase transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
+                  className={`min-h-12 rounded-lg border px-4 py-2 font-mono text-xs font-semibold uppercase transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
                     active
                       ? 'border-accent bg-accent text-bg'
                       : 'border-line bg-bg-panel text-muted hover:text-fg'
@@ -770,57 +797,59 @@ function DeliveriesLedgerSection() {
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {filteredItems.map((item, idx) => (
             <RevealBlock key={item.id} delay={idx * 0.05}>
-              <article className="flex h-full flex-col justify-between rounded-xl border border-line bg-bg-panel p-6 transition-colors hover:border-line-strong md:p-8">
-                <div>
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="rounded-md border border-line bg-bg px-2.5 py-1 font-mono text-xs font-semibold text-accent">
-                      {item.sector}
-                    </span>
-                    <span className="font-mono text-xs text-faint">{item.location}</span>
-                  </div>
-
-                  <p className="mt-4 font-mono text-xs uppercase tracking-wider text-muted">
-                    {item.client}
-                  </p>
-                  <h3 className="mt-1 font-display text-2xl font-bold tracking-tight text-fg">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
-                    {item.summary}
-                  </p>
-
-                  <ul className="mt-6 space-y-2 border-t border-line pt-4 text-xs font-medium text-fg">
-                    {item.outcomes.map((outcome) => (
-                      <li key={outcome} className="flex items-center gap-2">
-                        <span className="size-1.5 rounded-full bg-accent" />
-                        <span>{outcome}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mt-6 flex items-center justify-between border-t border-line pt-4">
-                  <div className="flex flex-wrap gap-1.5">
-                    {item.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded border border-line bg-bg px-2 py-0.5 font-mono text-[11px] text-muted"
-                      >
-                        {tech}
+              <TiltSurfaceCard className="h-full">
+                <article className="flex h-full flex-col justify-between rounded-xl border border-line bg-bg-panel p-6 transition-colors hover:border-line-strong md:p-8">
+                  <div>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="rounded-md border border-line bg-bg px-2.5 py-1 font-mono text-xs font-semibold text-accent">
+                        {item.sector}
                       </span>
-                    ))}
+                      <span className="font-mono text-xs text-faint">{item.location}</span>
+                    </div>
+
+                    <p className="mt-4 font-mono text-xs uppercase tracking-wider text-muted">
+                      {item.client}
+                    </p>
+                    <h3 className="mt-1 font-display text-2xl font-bold tracking-tight text-fg">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">
+                      {item.summary}
+                    </p>
+
+                    <ul className="mt-6 space-y-2 border-t border-line pt-4 text-xs font-medium text-fg">
+                      {item.outcomes.map((outcome) => (
+                        <li key={outcome} className="flex items-center gap-2">
+                          <span className="size-1.5 rounded-full bg-accent" />
+                          <span>{outcome}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={() => setModalRecordId(item.id)}
-                    className="inline-flex min-h-10 shrink-0 items-center gap-1 rounded-lg border border-line bg-bg px-3 py-1.5 font-mono text-xs font-semibold text-fg hover:border-accent focus-visible:ring-2 focus-visible:ring-accent"
-                  >
-                    <span>{t.deliveries.inspectBtn}</span>
-                    <ArrowUpRight className="size-3.5 text-accent" aria-hidden="true" />
-                  </button>
-                </div>
-              </article>
+                  <div className="mt-6 flex items-center justify-between border-t border-line pt-4">
+                    <div className="flex flex-wrap gap-1.5">
+                      {item.stack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded border border-line bg-bg px-2 py-0.5 font-mono text-[11px] text-muted"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setModalRecordId(item.id)}
+                      className="inline-flex min-h-12 shrink-0 items-center gap-1.5 rounded-lg border border-line bg-bg px-3.5 py-2 font-mono text-xs font-semibold text-fg hover:border-accent focus-visible:ring-2 focus-visible:ring-accent"
+                    >
+                      <span>{t.deliveries.inspectBtn}</span>
+                      <ArrowUpRight className="size-3.5 text-accent" aria-hidden="true" />
+                    </button>
+                  </div>
+                </article>
+              </TiltSurfaceCard>
             </RevealBlock>
           ))}
         </div>
@@ -853,7 +882,7 @@ function DeliveriesLedgerSection() {
               <button
                 type="button"
                 onClick={() => setModalRecordId(null)}
-                className="inline-flex min-h-10 items-center gap-1.5 rounded-lg border border-line bg-bg px-3 py-1.5 font-mono text-xs text-fg hover:border-line-strong"
+                className="inline-flex min-h-12 items-center gap-1.5 rounded-lg border border-line bg-bg px-4 py-2 font-mono text-xs text-fg hover:border-line-strong"
               >
                 <X className="size-4" aria-hidden="true" />
                 <span>{t.deliveries.closeModal}</span>
@@ -905,6 +934,7 @@ function DeliveriesLedgerSection() {
 function ExecutionRoadmapSection() {
   const { t } = useAppSettings();
   const [activePhaseIdx, setActivePhaseIdx] = useState(0);
+  const progressWidth = ((activePhaseIdx + 1) / t.roadmap.steps.length) * 100;
 
   return (
     <section
@@ -921,37 +951,46 @@ function ExecutionRoadmapSection() {
           </h2>
         </RevealBlock>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-4">
+        <div className="mt-8 h-1.5 w-full overflow-hidden rounded-full bg-bg">
+          <div
+            className="h-full bg-accent transition-all duration-500 ease-out"
+            style={{ width: `${progressWidth}%` }}
+          />
+        </div>
+
+        <div className="mt-8 grid gap-4 md:grid-cols-4">
           {t.roadmap.steps.map((step, idx) => {
             const isSelected = idx === activePhaseIdx;
             return (
               <RevealBlock key={step.phase} delay={idx * 0.06}>
-                <button
-                  type="button"
-                  onClick={() => setActivePhaseIdx(idx)}
-                  className={`flex h-full w-full flex-col justify-between rounded-xl border p-6 text-left transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
-                    isSelected
-                      ? 'border-accent bg-bg'
-                      : 'border-line bg-bg/50 hover:border-line-strong'
-                  }`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between font-mono text-xs">
-                      <span className="font-bold text-accent">{step.phase}</span>
-                      <span className="text-faint">{step.duration}</span>
+                <TiltSurfaceCard className="h-full">
+                  <button
+                    type="button"
+                    onClick={() => setActivePhaseIdx(idx)}
+                    className={`min-h-12 flex h-full w-full flex-col justify-between rounded-xl border p-6 text-left transition-colors focus-visible:ring-2 focus-visible:ring-accent ${
+                      isSelected
+                        ? 'border-accent bg-bg'
+                        : 'border-line bg-bg/50 hover:border-line-strong'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between font-mono text-xs">
+                        <span className="font-bold text-accent">{step.phase}</span>
+                        <span className="text-faint">{step.duration}</span>
+                      </div>
+                      <h3 className="mt-4 font-display text-xl font-bold text-fg">
+                        {step.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-relaxed text-muted">
+                        {step.body}
+                      </p>
                     </div>
-                    <h3 className="mt-4 font-display text-xl font-bold text-fg">
-                      {step.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted">
-                      {step.body}
-                    </p>
-                  </div>
 
-                  <div className="mt-6 border-t border-line pt-4">
-                    <p className="font-mono text-[11px] text-fg">{step.artifact}</p>
-                  </div>
-                </button>
+                    <div className="mt-6 border-t border-line pt-4">
+                      <p className="font-mono text-[11px] text-fg">{step.artifact}</p>
+                    </div>
+                  </button>
+                </TiltSurfaceCard>
               </RevealBlock>
             );
           })}
@@ -1097,7 +1136,7 @@ function PartnershipSection({
                   <button
                     type="button"
                     onClick={() => setSubmittedRecord(null)}
-                    className="min-h-11 rounded-lg border border-line-strong bg-bg px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-fg hover:border-accent"
+                    className="min-h-12 rounded-lg border border-line-strong bg-bg px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-fg hover:border-accent"
                   >
                     {t.partnership.confirmation.resetBtn}
                   </button>
@@ -1129,7 +1168,8 @@ function PartnershipSection({
                       autoComplete="name"
                       required
                       aria-label={t.partnership.form.nameHint}
-                      className="mt-2 h-11 w-full rounded-lg border border-line bg-bg px-3.5 text-sm text-fg outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
+                      data-native-cursor="true"
+                      className="mt-2 h-12 w-full rounded-lg border border-line bg-bg px-3.5 text-sm text-fg outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
                     />
                   </label>
 
@@ -1143,7 +1183,8 @@ function PartnershipSection({
                       autoComplete="email"
                       required
                       aria-label={t.partnership.form.emailHint}
-                      className="mt-2 h-11 w-full rounded-lg border border-line bg-bg px-3.5 text-sm text-fg outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
+                      data-native-cursor="true"
+                      className="mt-2 h-12 w-full rounded-lg border border-line bg-bg px-3.5 text-sm text-fg outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
                     />
                   </label>
                 </div>
@@ -1158,7 +1199,8 @@ function PartnershipSection({
                     autoComplete="organization"
                     required
                     aria-label={t.partnership.form.organizationHint}
-                    className="mt-2 h-11 w-full rounded-lg border border-line bg-bg px-3.5 text-sm text-fg outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
+                    data-native-cursor="true"
+                    className="mt-2 h-12 w-full rounded-lg border border-line bg-bg px-3.5 text-sm text-fg outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
                   />
                 </label>
 
@@ -1171,7 +1213,8 @@ function PartnershipSection({
                       name="blueprint"
                       value={selectedBlueprint}
                       onChange={(e) => onSelectBlueprint(e.target.value)}
-                      className="mt-2 h-11 w-full rounded-lg border border-line bg-bg px-3.5 text-sm text-fg outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
+                      data-native-cursor="true"
+                      className="mt-2 h-12 w-full rounded-lg border border-line bg-bg px-3.5 text-sm text-fg outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
                     >
                       {t.blueprints.tabs.map((tab) => (
                         <option key={tab.id} value={tab.title}>
@@ -1190,7 +1233,8 @@ function PartnershipSection({
                       type="text"
                       value={scaleSummary}
                       onChange={(e) => onChangeScaleSummary(e.target.value)}
-                      className="mt-2 h-11 w-full rounded-lg border border-line bg-bg px-3.5 font-mono text-xs text-fg outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
+                      data-native-cursor="true"
+                      className="mt-2 h-12 w-full rounded-lg border border-line bg-bg px-3.5 font-mono text-xs text-fg outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
                     />
                   </label>
                 </div>
@@ -1203,6 +1247,7 @@ function PartnershipSection({
                     name="notes"
                     rows={3}
                     aria-label={t.partnership.form.notesHint}
+                    data-native-cursor="true"
                     className="mt-2 w-full rounded-lg border border-line bg-bg p-3.5 text-sm text-fg outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
                   />
                 </label>
@@ -1254,6 +1299,7 @@ function ArchitecturalFooter() {
 
 export function App() {
   const { t } = useAppSettings();
+  const [booting, setBooting] = useState(true);
   const [selectedBlueprint, setSelectedBlueprint] = useState(
     t.blueprints.tabs[0]?.title ?? 'Kinetic Web Platform'
   );
@@ -1262,29 +1308,33 @@ export function App() {
   );
 
   return (
-    <SmoothScrollWrapper>
-      <TopProgressIndicator />
-      <ArchitecturalHeader />
-      <main>
-        <HeroArchitectureSection />
-        <CapabilityStreamBar />
-        <BlueprintExplorerSection
-          onSelectBlueprintForForm={(title) => setSelectedBlueprint(title)}
-        />
-        <CapacitySimulatorSection
-          onApplyScale={(summary) => setScaleSummary(summary)}
-        />
-        <DeliveriesLedgerSection />
-        <ExecutionRoadmapSection />
-        <PartnershipSection
-          selectedBlueprint={selectedBlueprint}
-          onSelectBlueprint={setSelectedBlueprint}
-          scaleSummary={scaleSummary}
-          onChangeScaleSummary={setScaleSummary}
-        />
-      </main>
-      <ArchitecturalFooter />
-    </SmoothScrollWrapper>
+    <>
+      {booting && <KernelBootSequence onComplete={() => setBooting(false)} />}
+      <SmoothScrollWrapper disabled={booting}>
+        <PrecisionReticleCursor />
+        <TopProgressIndicator />
+        <ArchitecturalHeader hidden={booting} />
+        <main>
+          <HeroArchitectureSection ready={!booting} />
+          <CapabilityStreamBar />
+          <BlueprintExplorerSection
+            onSelectBlueprintForForm={(title) => setSelectedBlueprint(title)}
+          />
+          <CapacitySimulatorSection
+            onApplyScale={(summary) => setScaleSummary(summary)}
+          />
+          <DeliveriesLedgerSection />
+          <ExecutionRoadmapSection />
+          <PartnershipSection
+            selectedBlueprint={selectedBlueprint}
+            onSelectBlueprint={setSelectedBlueprint}
+            scaleSummary={scaleSummary}
+            onChangeScaleSummary={setScaleSummary}
+          />
+        </main>
+        <ArchitecturalFooter />
+      </SmoothScrollWrapper>
+    </>
   );
 }
 

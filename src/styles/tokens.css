@@ -13,7 +13,7 @@
   --color-error: #dc2626;
   --color-on-error: #f8fafc;
   --color-outline: rgba(15, 23, 42, 0.12);
-  --color-outline-strong: rgba(15, 23, 42, 0.26);
+  --color-outline-strong: rgba(15, 23, 42, 0.28);
 
   --color-bg: var(--color-background);
   --color-bg-panel: var(--color-surface);
@@ -26,7 +26,7 @@
   --color-accent: var(--color-primary);
   --color-accent-alt: var(--color-secondary);
 
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 }
@@ -43,7 +43,7 @@
   --color-error: #f87171;
   --color-on-error: #101318;
   --color-outline: rgba(241, 245, 249, 0.11);
-  --color-outline-strong: rgba(241, 245, 249, 0.24);
+  --color-outline-strong: rgba(241, 245, 249, 0.26);
 
   --color-bg: var(--color-background);
   --color-bg-panel: var(--color-surface);
@@ -79,7 +79,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-bg);
   color: var(--color-fg);
-  transition: background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 body {
@@ -89,6 +91,7 @@ body {
   min-height: 100%;
   margin: 0;
   overflow-x: hidden;
+  line-height: 1.5;
 }
 
 ::selection {
@@ -96,8 +99,20 @@ body {
   color: var(--color-on-primary);
 }
 
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+
+html.has-cursor input,
+html.has-cursor textarea,
+html.has-cursor select,
+html.has-cursor [data-native-cursor] {
+  cursor: text !important;
+}
+
 .tech-grid-bg {
-  background-size: 36px 36px;
+  background-size: 40px 40px;
   background-image:
     linear-gradient(to right, var(--color-line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
@@ -105,21 +120,24 @@ body {
 
 .reveal-block {
   opacity: 0;
-  transform: translateY(22px);
+  filter: blur(5px);
+  transform: translateY(26px);
   transition:
-    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal-block.is-visible {
   opacity: 1;
+  filter: blur(0);
   transform: translateY(0);
 }
 
 .ticker-stream {
   width: max-content;
   display: flex;
-  animation: 28s linear infinite stream-scroll;
+  animation: 26s linear infinite stream-scroll;
 }
 
 .ticker-stream:hover {
@@ -142,6 +160,7 @@ body {
   .reveal-block,
   .reveal-block.is-visible {
     opacity: 1;
+    filter: none;
     transform: none;
     transition: none;
   }
